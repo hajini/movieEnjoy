@@ -27,18 +27,18 @@ class ViewController: UIViewController {
         //background image
         let image = UIImage(named: "backImg01")
         let imageView = UIImageView(image: image!)
-        imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view.addSubview(imageView)
         self.view.bringSubviewToFront(imageView)
 
         //center image
         let centerImage = UIImage(named: "enjoy")
         let centerImageView = UIImageView(image: centerImage!)
-        centerImageView.frame = CGRect(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2, width: 216, height: 99)
+        centerImageView.frame = CGRect(x: self.view.bounds.size.width/2-108, y: self.view.bounds.size.height/2-44.5, width: 216, height: 99)
         self.view.addSubview(centerImageView)
         
         
-        let seconds = 4.0
+        let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             // Put your code which should be executed with a delay here
             
