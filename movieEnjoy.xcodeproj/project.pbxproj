@@ -11,6 +11,9 @@
 		F7B546F124C48CDC00A3909A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B546F024C48CDC00A3909A /* GoogleService-Info.plist */; };
 		F7B546F324C48EFD00A3909A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B546F224C48EFD00A3909A /* SignInVC.swift */; };
 		F7B546F524C48F0D00A3909A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B546F424C48F0D00A3909A /* SignUpVC.swift */; };
+		F7B546F724C696A000A3909A /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B546F624C696A000A3909A /* AlertService.swift */; };
+		F7B546FA24C698BB00A3909A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B546F924C698BB00A3909A /* MainVC.swift */; };
+		F7B546FC24C698F000A3909A /* LoggedMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B546FB24C698F000A3909A /* LoggedMain.storyboard */; };
 		F7B6F31924C1E108009F1F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F31824C1E108009F1F2C /* AppDelegate.swift */; };
 		F7B6F31B24C1E108009F1F2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F31A24C1E108009F1F2C /* SceneDelegate.swift */; };
 		F7B6F31D24C1E108009F1F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6F31C24C1E108009F1F2C /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 		F7B546F024C48CDC00A3909A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7B546F224C48EFD00A3909A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		F7B546F424C48F0D00A3909A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		F7B546F624C696A000A3909A /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		F7B546F924C698BB00A3909A /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		F7B546FB24C698F000A3909A /* LoggedMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoggedMain.storyboard; sourceTree = "<group>"; };
 		F7B6F31524C1E108009F1F2C /* movieEnjoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieEnjoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B6F31824C1E108009F1F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B6F31A24C1E108009F1F2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F7B546F824C698AB00A3909A /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				F7B546FB24C698F000A3909A /* LoggedMain.storyboard */,
+				F7B546F924C698BB00A3909A /* MainVC.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		F7B6F30C24C1E108009F1F2C = {
 			isa = PBXGroup;
 			children = (
@@ -95,10 +110,11 @@
 				F7B6F31824C1E108009F1F2C /* AppDelegate.swift */,
 				F7B6F33624C1E4F4009F1F2C /* Extension */,
 				F7B6F31A24C1E108009F1F2C /* SceneDelegate.swift */,
+				F7B546F624C696A000A3909A /* AlertService.swift */,
 				F7B6F32F24C1E1A7009F1F2C /* StartingView */,
-				F7B6F31E24C1E108009F1F2C /* Main.storyboard */,
 				F7B6F32424C1E10A009F1F2C /* Assets.xcassets */,
 				F7B6F32924C1E10A009F1F2C /* Info.plist */,
+				F7B546F824C698AB00A3909A /* MainView */,
 				F7B6F32124C1E108009F1F2C /* movieEnjoy.xcdatamodeld */,
 				F7B546F024C48CDC00A3909A /* GoogleService-Info.plist */,
 			);
@@ -108,6 +124,7 @@
 		F7B6F32F24C1E1A7009F1F2C /* StartingView */ = {
 			isa = PBXGroup;
 			children = (
+				F7B6F31E24C1E108009F1F2C /* Main.storyboard */,
 				F7B6F31C24C1E108009F1F2C /* ViewController.swift */,
 				F7B6F33924C1E6B8009F1F2C /* StartVC.swift */,
 				F7B546F224C48EFD00A3909A /* SignInVC.swift */,
@@ -187,6 +204,7 @@
 			files = (
 				F7B546F124C48CDC00A3909A /* GoogleService-Info.plist in Resources */,
 				F7B6F32824C1E10A009F1F2C /* LaunchScreen.storyboard in Resources */,
+				F7B546FC24C698F000A3909A /* LoggedMain.storyboard in Resources */,
 				F7B6F32524C1E10A009F1F2C /* Assets.xcassets in Resources */,
 				F7B6F32024C1E108009F1F2C /* Main.storyboard in Resources */,
 			);
@@ -242,12 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B546F524C48F0D00A3909A /* SignUpVC.swift in Sources */,
+				F7B546FA24C698BB00A3909A /* MainVC.swift in Sources */,
 				F7B6F33824C1E502009F1F2C /* GradientView.swift in Sources */,
 				F7B6F32324C1E108009F1F2C /* movieEnjoy.xcdatamodeld in Sources */,
 				F7B6F31D24C1E108009F1F2C /* ViewController.swift in Sources */,
 				F7B6F31924C1E108009F1F2C /* AppDelegate.swift in Sources */,
 				F7B546F324C48EFD00A3909A /* SignInVC.swift in Sources */,
 				F7B6F31B24C1E108009F1F2C /* SceneDelegate.swift in Sources */,
+				F7B546F724C696A000A3909A /* AlertService.swift in Sources */,
 				F7B6F33A24C1E6B8009F1F2C /* StartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

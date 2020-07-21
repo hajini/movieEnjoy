@@ -10,10 +10,25 @@ import UIKit
 
 class SignInVC: UIViewController {
 
+    var gradientLayer : CAGradientLayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.gradientLayer = CAGradientLayer()
+        self.gradientLayer.frame = self.view.bounds
+        self.gradientLayer.startPoint = CGPoint(x: 1, y: 0)
+        self.gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        self.gradientLayer.colors = [UIColor.init(red: 184/255, green: 129/255, blue: 249/255, alpha: 1.0).cgColor, UIColor.init(red: 84/255, green: 90/255, blue: 233/255, alpha: 1.0).cgColor]
+        self.view.layer.addSublayer(self.gradientLayer)
+        
+        //background image
+        let image = UIImage(named: "backImg04")
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.addSubview(imageView)
+        self.view.bringSubviewToFront(imageView)
     }
     
 

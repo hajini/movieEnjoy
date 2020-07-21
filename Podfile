@@ -6,7 +6,7 @@ target 'movieEnjoy' do
   use_frameworks!
 
 pod 'FirebaseAuth'
-pod 'Firebase/Analytics' 
+pod 'Firebase/Analytics'
 
   # Pods for movieEnjoy
 
