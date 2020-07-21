@@ -7,6 +7,7 @@ target 'movieEnjoy' do
 
 pod 'FirebaseAuth'
 pod 'Firebase/Analytics'
+pod 'TextFieldEffects'
 
   # Pods for movieEnjoy
 

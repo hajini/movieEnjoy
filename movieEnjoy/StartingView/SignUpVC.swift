@@ -8,13 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import TextFieldEffects
 
 class SignUpVC: UIViewController {
 
-    @IBOutlet var nameTxtFld: UITextField!
-    @IBOutlet var emailTxtFld: UITextField!
-    @IBOutlet var passwordTxtFld: UITextField!
-    @IBOutlet var confirmTxtFld: UITextField!
+    @IBOutlet var nameTxtFld: TextFieldEffects!
+    @IBOutlet var emailTxtFld: TextFieldEffects!
+    @IBOutlet var passwordTxtFld: TextFieldEffects!
+    @IBOutlet var confirmTxtFld: TextFieldEffects!
     
     @IBOutlet weak var createAccBtn: UIButton!
     
@@ -24,9 +25,7 @@ class SignUpVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
           self.view.endEditing(true)
     }
-
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,50 +62,32 @@ class SignUpVC: UIViewController {
         self.view.addSubview(label01)
         
         // text Filed align
-//        let textField01 = HoshiTextField(frame: nameTxtFld.frame)
-//        textField01.placeholder = "Full name"
-//        textField01.borderActiveColor = .systemGray3
-//        textField01.borderInactiveColor = .white
-//        textField01.placeholderFontScale = 0.8
-//        textField01.frame = CGRect(x: 15, y: label01.frame.midY+50, width: self.view.frame.size.width-30, height: 40)
-//        textField01.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-//        textField01.autocapitalizationType = .none
-//        self.view.addSubview(textField01)
-//
-//        let textField02 = HoshiTextField(frame: emailTxtFld.frame)
-//        textField02.placeholder = "E-mail address"
-//        textField02.borderActiveColor = .systemGray3
-//        textField02.borderInactiveColor = .white
-//        textField02.placeholderFontScale = 0.8
-//        textField02.frame = CGRect(x: 15, y: textField01.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
-//        textField02.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-//        textField02.autocapitalizationType = .none
-//        self.view.addSubview(textField02)
-//
-//        let textField03 = HoshiTextField(frame: passwordTxtFld.frame)
-//        textField03.placeholder = "Password"
-//        textField03.borderActiveColor = .systemGray3
-//        textField03.borderInactiveColor = .white
-//        textField03.placeholderFontScale = 0.8
-//        textField03.frame = CGRect(x: 15, y: textField02.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
-//        textField03.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-//        textField03.autocapitalizationType = .none
-//        self.view.addSubview(textField03)
-//
-//        let textField04 = HoshiTextField(frame: confirmTxtFld.frame)
-//        textField04.placeholder = "Confirm password"
-//        textField04.borderActiveColor = .systemGray3
-//        textField04.borderInactiveColor = .white
-//        textField04.placeholderFontScale = 0.8
-//        textField04.frame = CGRect(x: 15, y: textField03.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
-//        textField04.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-//        textField04.autocapitalizationType = .none
-//        self.view.addSubview(textField04)
+        let textField01 = TextFieldOption.fixedOption(textField: nameTxtFld, placeholder: "Full name", frame: nameTxtFld.frame)
+        textField01.frame = CGRect(x: 15, y: label01.frame.midY+50, width: self.view.frame.size.width-30, height: 40)
+        textField01.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
+        self.view.addSubview(textField01)
+
+        let textField02 = TextFieldOption.fixedOption(textField: emailTxtFld, placeholder: "E-mail address", frame: emailTxtFld.frame)
+        textField02.frame = CGRect(x: 15, y: textField01.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
+        textField02.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
+        self.view.addSubview(textField02)
+
+        let textField03 = TextFieldOption.fixedOption(textField: passwordTxtFld, placeholder: "Password", frame: passwordTxtFld.frame)
+        textField03.frame = CGRect(x: 15, y: textField02.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
+        textField03.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
+        textField03.isSecureTextEntry = true
+        self.view.addSubview(textField03)
+
+        let textField04 = TextFieldOption.fixedOption(textField: confirmTxtFld, placeholder: "Confirm password", frame: confirmTxtFld.frame)
+        textField04.frame = CGRect(x: 15, y: textField03.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
+        textField04.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
+        textField04.isSecureTextEntry = true
+        self.view.addSubview(textField04)
         
-        self.view.addSubview(nameTxtFld)
-        self.view.addSubview(emailTxtFld)
-        self.view.addSubview(passwordTxtFld)
-        self.view.addSubview(confirmTxtFld)
+//        self.view.addSubview(nameTxtFld)
+//        self.view.addSubview(emailTxtFld)
+//        self.view.addSubview(passwordTxtFld)
+//        self.view.addSubview(confirmTxtFld)
         
         createAccBtn.frame = CGRect(x: self.view.frame.size.width/2-(195/2), y: self.view.frame.size.height-200, width: 195, height: 76)
         createAccBtn.setTitle("Create Account", for: .normal)
@@ -137,7 +118,7 @@ class SignUpVC: UIViewController {
     
     @IBAction func createAccBtnTap(_ sender: Any) {
         // Firebase Auth service
-        print(nameTxtFld.text!)
+        print()
         
         if nameTxtFld.text! == "" || emailTxtFld.text! == "" || passwordTxtFld.text! == "" || confirmTxtFld.text! == "" {
                AlertService.errAlert(title: "정보 입력이 부족합니다", message: "빈칸을 확인해 주세요", VC: self, handler: nil)
