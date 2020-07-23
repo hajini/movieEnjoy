@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         self.view.addSubview(centerImageView)
         
         
-        let seconds = 1.0
+        let seconds = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             // Put your code which should be executed with a delay here
             

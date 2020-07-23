@@ -12,10 +12,13 @@ import TextFieldEffects
 
 class SignUpVC: UIViewController {
 
-    @IBOutlet var nameTxtFld: TextFieldEffects!
-    @IBOutlet var emailTxtFld: TextFieldEffects!
-    @IBOutlet var passwordTxtFld: TextFieldEffects!
-    @IBOutlet var confirmTxtFld: TextFieldEffects!
+    @IBOutlet weak var backGroundView: UIView!
+    
+    @IBOutlet weak var nameTxtFld: HoshiTextField!
+    @IBOutlet weak var emailTxtFld: HoshiTextField!
+    @IBOutlet weak var passTxtFld: HoshiTextField!
+    @IBOutlet weak var confirmPassTxtFld: HoshiTextField!
+    
     
     @IBOutlet weak var createAccBtn: UIButton!
     
@@ -29,14 +32,19 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        let goToMain = UIStoryboard(name: "LoggedMain", bundle: nil)
+//        let VC = goToMain.instantiateViewController(identifier: "MainVC")
+//        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+        
+        
         // Do any additional setup after loading the view.
         
         self.gradientLayer = CAGradientLayer()
-        self.gradientLayer.frame = self.view.bounds
+        self.gradientLayer.frame = self.backGroundView.bounds
         self.gradientLayer.startPoint = CGPoint(x: 1, y: 0)
         self.gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         self.gradientLayer.colors = [UIColor.init(red: 184/255, green: 129/255, blue: 249/255, alpha: 1.0).cgColor, UIColor.init(red: 84/255, green: 90/255, blue: 233/255, alpha: 1.0).cgColor]
-        self.view.layer.addSublayer(self.gradientLayer)
+        self.backGroundView.layer.addSublayer(self.gradientLayer)
         
         //background image
         let image = UIImage(named: "backImg03")
@@ -60,34 +68,6 @@ class SignUpVC: UIViewController {
         label01.frame = CGRect(x: self.view.bounds.size.width/2-88, y: self.view.bounds.size.height/4+70, width: 177, height: 22)
         label01.textColor = .white
         self.view.addSubview(label01)
-        
-        // text Filed align
-        let textField01 = TextFieldOption.fixedOption(textField: nameTxtFld, placeholder: "Full name", frame: nameTxtFld.frame)
-        textField01.frame = CGRect(x: 15, y: label01.frame.midY+50, width: self.view.frame.size.width-30, height: 40)
-        textField01.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-        self.view.addSubview(textField01)
-
-        let textField02 = TextFieldOption.fixedOption(textField: emailTxtFld, placeholder: "E-mail address", frame: emailTxtFld.frame)
-        textField02.frame = CGRect(x: 15, y: textField01.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
-        textField02.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-        self.view.addSubview(textField02)
-
-        let textField03 = TextFieldOption.fixedOption(textField: passwordTxtFld, placeholder: "Password", frame: passwordTxtFld.frame)
-        textField03.frame = CGRect(x: 15, y: textField02.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
-        textField03.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-        textField03.isSecureTextEntry = true
-        self.view.addSubview(textField03)
-
-        let textField04 = TextFieldOption.fixedOption(textField: confirmTxtFld, placeholder: "Confirm password", frame: confirmTxtFld.frame)
-        textField04.frame = CGRect(x: 15, y: textField03.frame.midY+30, width: self.view.frame.size.width-30, height: 40)
-        textField04.bounds = CGRect(x: 0, y: 0, width: self.view.frame.size.width-30, height: 48)
-        textField04.isSecureTextEntry = true
-        self.view.addSubview(textField04)
-        
-//        self.view.addSubview(nameTxtFld)
-//        self.view.addSubview(emailTxtFld)
-//        self.view.addSubview(passwordTxtFld)
-//        self.view.addSubview(confirmTxtFld)
         
         createAccBtn.frame = CGRect(x: self.view.frame.size.width/2-(195/2), y: self.view.frame.size.height-200, width: 195, height: 76)
         createAccBtn.setTitle("Create Account", for: .normal)
@@ -118,26 +98,48 @@ class SignUpVC: UIViewController {
     
     @IBAction func createAccBtnTap(_ sender: Any) {
         // Firebase Auth service
-        print()
         
-        if nameTxtFld.text! == "" || emailTxtFld.text! == "" || passwordTxtFld.text! == "" || confirmTxtFld.text! == "" {
-               AlertService.errAlert(title: "정보 입력이 부족합니다", message: "빈칸을 확인해 주세요", VC: self, handler: nil)
+        guard let name = nameTxtFld.text, !name.isEmpty,
+            let email = emailTxtFld.text, !email.isEmpty,
+            let pass = passTxtFld.text, !pass.isEmpty,
+            let confirm = confirmPassTxtFld.text, !confirm.isEmpty else {
+                AlertService.errAlert(title: "정보 입력이 부족합니다", message: "빈칸을 확인해 주세요", VC: self, handler: nil)
+                return
+        }
+        
+        Auth.auth().createUser(withEmail: emailTxtFld.text!, password: passTxtFld.text!) { (result, err) in
+           if err != nil {
+            AlertService.errAlert(title: "오류", message: "\(err!.localizedDescription)", VC: self, handler: nil)
+
            } else {
-               Auth.auth().createUser(withEmail: emailTxtFld.text!, password: passwordTxtFld.text!) { (result, err) in
-                   if err != nil {
-                    AlertService.errAlert(title: "오류", message: "\(err!.localizedDescription)", VC: self, handler: nil)
-                      
-                   } else {
-                    
-                    AlertService.confirmAlert02(title: "가입이 완료되었습니다", message: "메인페이지로 로그인합니다", VC: self) { (_) in
-                        print(result.debugDescription, "created")
-                        let goToMain = UIStoryboard(name: "LoggedMain", bundle: nil)
-                        let VC = goToMain.instantiateViewController(identifier: "MainVC")
-                        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
-                    }
-                }
-                   
-               }
-           }
+
+            AlertService.confirmAlert02(title: "가입이 완료되었습니다", message: "메인페이지로 로그인합니다", VC: self) { (_) in
+                print(result.debugDescription, "created")
+                let goToMain = UIStoryboard(name: "LoggedMain", bundle: nil)
+                let VC = goToMain.instantiateViewController(identifier: "MainVC")
+                UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+            }
+            }
+        }
+        
+//        if nameTxtFld.text! == "" || emailTxtFld.text! == "" || passwordTxtFld.text! == "" || confirmTxtFld.text! == "" {
+//               AlertService.errAlert(title: "정보 입력이 부족합니다", message: "빈칸을 확인해 주세요", VC: self, handler: nil)
+//           } else {
+//               Auth.auth().createUser(withEmail: emailTxtFld.text!, password: passwordTxtFld.text!) { (result, err) in
+//                   if err != nil {
+//                    AlertService.errAlert(title: "오류", message: "\(err!.localizedDescription)", VC: self, handler: nil)
+//
+//                   } else {
+//
+//                    AlertService.confirmAlert02(title: "가입이 완료되었습니다", message: "메인페이지로 로그인합니다", VC: self) { (_) in
+//                        print(result.debugDescription, "created")
+//                        let goToMain = UIStoryboard(name: "LoggedMain", bundle: nil)
+//                        let VC = goToMain.instantiateViewController(identifier: "MainVC")
+//                        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+//                    }
+//                }
+//
+//               }
+//           }
     }
 }
