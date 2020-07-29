@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainVC: UIViewController {
 
@@ -24,6 +25,8 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        print(UserDefaults.standard.string(forKey: "token")!)
+        
         // Do any additional setup after loading the view.
         self.gradientLayer = CAGradientLayer()
         self.gradientLayer.frame = self.backGroundView.bounds
@@ -54,6 +57,22 @@ class MainVC: UIViewController {
     }
     */
     @IBAction func menuBtnTap(_ sender: Any) {
+    }
+    @IBAction func logOutBtnTap(_ sender: Any) {
+        
+        AlertService.confirmAlert(title: "로그아웃 하시겠습니까?", message: "", VC: self) { (_) in
+            do {
+                try Auth.auth().signOut()
+                UserDefaults.standard.removeObject(forKey: "token")
+                AlertService.confirmAlert02(title: "로그아웃 되었습니다", message: "첫 화면으로 돌아갑니다", VC: self) { (_) in
+                    let goToMain = UIStoryboard(name: "Main", bundle: nil)
+                    let VC = goToMain.instantiateViewController(identifier: "StartVC")
+                    UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+                }
+            } catch let signOutError as NSError {
+                print(signOutError, "signOutError")
+            }
+        }
     }
     
 }

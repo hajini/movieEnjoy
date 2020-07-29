@@ -69,6 +69,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VlM-8w-3mU">
+                                <rect key="frame" x="344" y="48" width="52" height="30"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logOutBtnTap:" destination="3xI-OK-jL0" eventType="touchUpInside" id="ZzY-k6-DMd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -76,6 +83,8 @@
                             <constraint firstItem="332-be-yBg" firstAttribute="trailing" secondItem="8oY-QT-EDO" secondAttribute="trailing" id="8Sc-TC-hSg"/>
                             <constraint firstItem="Lay-cL-0m6" firstAttribute="trailing" secondItem="FtL-aF-Agg" secondAttribute="trailing" id="8jX-lz-oIj"/>
                             <constraint firstItem="B6a-q4-6Ov" firstAttribute="leading" secondItem="332-be-yBg" secondAttribute="leading" id="9gm-6I-oVs"/>
+                            <constraint firstItem="VlM-8w-3mU" firstAttribute="centerY" secondItem="iT8-L2-iC3" secondAttribute="centerY" id="B68-OH-3mu"/>
+                            <constraint firstItem="VlM-8w-3mU" firstAttribute="leading" secondItem="8oY-QT-EDO" secondAttribute="trailing" constant="-70" id="CL2-6Q-ysn"/>
                             <constraint firstItem="FtL-aF-Agg" firstAttribute="trailing" secondItem="DYH-Xy-m7N" secondAttribute="trailing" id="IFc-Yb-xry"/>
                             <constraint firstItem="Cuj-tt-MUn" firstAttribute="top" secondItem="gIS-Wj-cmK" secondAttribute="top" constant="114" id="JMc-3b-ZZT"/>
                             <constraint firstItem="peX-Tg-MIn" firstAttribute="top" secondItem="8oY-QT-EDO" secondAttribute="bottom" constant="-40" id="Rwm-uJ-bgs"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StartVC: UIViewController {
 
@@ -86,10 +87,16 @@ class StartVC: UIViewController {
     }
     */
     @IBAction func signInBtnTap(_ sender: Any) {
-       
-        let goToSignIn = UIStoryboard(name: "Main", bundle: nil)
-        let VC = goToSignIn.instantiateViewController(identifier: "signInVC")
-        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+        
+        if Auth.auth().currentUser != nil {
+            let goToMain = UIStoryboard(name: "LoggedMain", bundle: nil)
+            let VC = goToMain.instantiateViewController(identifier: "MainVC")
+            UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+        } else {
+            let goToSignIn = UIStoryboard(name: "Main", bundle: nil)
+            let VC = goToSignIn.instantiateViewController(identifier: "signInVC")
+            UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
+        }
         
     }
     

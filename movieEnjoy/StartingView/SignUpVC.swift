@@ -76,7 +76,8 @@ class SignUpVC: UIViewController {
         createAccBtn.setBackgroundImage(backImg, for: .normal)
         self.view.addSubview(createAccBtn)
         
-        
+        passTxtFld.isSecureTextEntry = true
+        confirmPassTxtFld.isSecureTextEntry = true
         
     }
     
@@ -113,10 +114,9 @@ class SignUpVC: UIViewController {
 
            } else {
 
-            AlertService.confirmAlert02(title: "가입이 완료되었습니다", message: "메인페이지로 로그인합니다", VC: self) { (_) in
-                print(result.debugDescription, "created")
-                let goToMain = UIStoryboard(name: "LoggedMain", bundle: nil)
-                let VC = goToMain.instantiateViewController(identifier: "MainVC")
+            AlertService.confirmAlert02(title: "가입이 완료되었습니다", message: "로그인 해 주세요", VC: self) { (_) in
+                let goToMain = UIStoryboard(name: "Main", bundle: nil)
+                let VC = goToMain.instantiateViewController(identifier: "signInVC")
                 UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.rootViewController = VC
             }
             }

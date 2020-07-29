@@ -81,15 +81,73 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQ3-uJ-w6k">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-rR-86k">
+                                        <rect key="frame" x="186" y="644" width="42" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Log in"/>
+                                        <connections>
+                                            <action selector="logInBtnTap:" destination="zeF-zJ-5fc" eventType="touchUpInside" id="noT-VT-6nO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l0T-Oa-AcJ">
+                                <rect key="frame" x="15" y="430" width="384" height="90"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Okt-gg-Qyg" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="i0I-0L-Ew8"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hem-va-7NR" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="50" width="384" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="guD-2I-Htq"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rQ3-uJ-w6k" firstAttribute="trailing" secondItem="Wh1-3b-OVK" secondAttribute="trailing" id="E9r-4Z-Ygw"/>
+                            <constraint firstItem="l0T-Oa-AcJ" firstAttribute="leading" secondItem="Wh1-3b-OVK" secondAttribute="leading" constant="15" id="KGB-3i-NAZ"/>
                             <constraint firstItem="rQ3-uJ-w6k" firstAttribute="top" secondItem="g8H-Dr-GoC" secondAttribute="top" id="MdC-RE-TNo"/>
                             <constraint firstItem="rQ3-uJ-w6k" firstAttribute="leading" secondItem="Wh1-3b-OVK" secondAttribute="leading" id="Tso-VS-Bi4"/>
                             <constraint firstAttribute="bottom" secondItem="rQ3-uJ-w6k" secondAttribute="bottom" id="Zky-XJ-vPs"/>
+                            <constraint firstItem="l0T-Oa-AcJ" firstAttribute="centerY" secondItem="Wh1-3b-OVK" secondAttribute="centerY" id="yX3-Jd-hyP"/>
+                            <constraint firstItem="Wh1-3b-OVK" firstAttribute="trailing" secondItem="l0T-Oa-AcJ" secondAttribute="trailing" constant="15" id="zl7-be-7z3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wh1-3b-OVK"/>
                     </view>
@@ -103,6 +161,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backGroundView" destination="rQ3-uJ-w6k" id="PM4-fc-5bW"/>
+                        <outlet property="emailTxtFld" destination="Okt-gg-Qyg" id="jSH-us-n0K"/>
+                        <outlet property="logInBtn" destination="Bd8-rR-86k" id="nts-AH-w85"/>
+                        <outlet property="passTxtFld" destination="hem-va-7NR" id="ksw-mN-d6c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSg-3y-0z9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
