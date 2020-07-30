@@ -19,13 +19,23 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var backGroundView: UIView!
     
-    
+    @IBOutlet weak var collection01: UICollectionView!
+   
     var gradientLayer: CAGradientLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        print(UserDefaults.standard.string(forKey: "token")!)
+        
+        
+        collection01.register(CollectionViewCell01.nib(), forCellWithReuseIdentifier: CollectionViewCell01.identifier)
+        collection01.register(CollectionViewCell02.nib(), forCellWithReuseIdentifier: CollectionViewCell02.identifier)
+        collection01.register(CollectionViewCell03.nib(), forCellWithReuseIdentifier: CollectionViewCell03.identifier)
+        collection01.register(CollectionHeaderView.nib(), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier)
+        
+        collection01.delegate = self
+        collection01.dataSource = self
         
         // Do any additional setup after loading the view.
         self.gradientLayer = CAGradientLayer()
@@ -44,9 +54,9 @@ class MainVC: UIViewController {
         let imageView02 = UIImageView(image: image02!)
         imageView02.frame = profileImg.frame
         self.view.addSubview(imageView02)
+        
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -76,3 +86,86 @@ class MainVC: UIViewController {
     }
     
 }
+
+extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 5
+        } else if section == 1 {
+            return 5
+        }
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+         
+        if indexPath.section == 0 {
+            let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell01.identifier, for: indexPath) as! CollectionViewCell01
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell02.identifier, for: indexPath) as! CollectionViewCell02
+            return cell
+        }
+        let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell03.identifier, for: indexPath) as! CollectionViewCell03
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            print("cell01")
+        } else if indexPath.section == 1 {
+            print("cell02")
+        } else {
+            print("cell03")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: collection01.frame.width, height: 50)
+        } else if section == 1 {
+            return CGSize(width: collection01.frame.width, height: 50)
+        }
+        return CGSize(width: collection01.frame.width, height: 50)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        var header : CollectionHeaderView?
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            if indexPath.section == 0 {
+                header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
+                header?.backgroundColor = .systemGray5
+                header?.label01.text = "헤더"
+                return header!
+            } else if indexPath.section == 1 {
+                header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
+                header?.label01.text = "헤더2"
+                return header!
+            }
+            header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
+            header?.label01.text = "헤더3"
+        }
+        return header!
+        
+            
+    }
+    
+}
+
+

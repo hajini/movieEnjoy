@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		BE6DE0FFC9D942B361607136 /* Pods_movieEnjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E607860CBABD7E432928CAE /* Pods_movieEnjoy.framework */; };
 		F7404BF724C724C400A6A5A1 /* TextFieldOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7404BF624C724C400A6A5A1 /* TextFieldOption.swift */; };
+		F7404C2B24D24D5C00A6A5A1 /* CollectionViewCell01.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7404C2924D24D5C00A6A5A1 /* CollectionViewCell01.swift */; };
+		F7404C2C24D24D5C00A6A5A1 /* CollectionViewCell01.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7404C2A24D24D5C00A6A5A1 /* CollectionViewCell01.xib */; };
+		F7404C2F24D24D6C00A6A5A1 /* CollectionViewCell02.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7404C2D24D24D6C00A6A5A1 /* CollectionViewCell02.swift */; };
+		F7404C3024D24D6C00A6A5A1 /* CollectionViewCell02.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7404C2E24D24D6C00A6A5A1 /* CollectionViewCell02.xib */; };
+		F7404C3324D24D7600A6A5A1 /* CollectionViewCell03.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7404C3124D24D7600A6A5A1 /* CollectionViewCell03.swift */; };
+		F7404C3424D24D7600A6A5A1 /* CollectionViewCell03.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7404C3224D24D7600A6A5A1 /* CollectionViewCell03.xib */; };
+		F7404C3724D25DC800A6A5A1 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7404C3524D25DC800A6A5A1 /* CollectionHeaderView.swift */; };
+		F7404C3824D25DC800A6A5A1 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7404C3624D25DC800A6A5A1 /* CollectionHeaderView.xib */; };
 		F7B546F124C48CDC00A3909A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B546F024C48CDC00A3909A /* GoogleService-Info.plist */; };
 		F7B546F324C48EFD00A3909A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B546F224C48EFD00A3909A /* SignInVC.swift */; };
 		F7B546F524C48F0D00A3909A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B546F424C48F0D00A3909A /* SignUpVC.swift */; };
@@ -31,6 +39,14 @@
 		29FF02BDB21576A82C053652 /* Pods-movieEnjoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieEnjoy.debug.xcconfig"; path = "Target Support Files/Pods-movieEnjoy/Pods-movieEnjoy.debug.xcconfig"; sourceTree = "<group>"; };
 		2FB145BBD045ABF7958EB9ED /* Pods-movieEnjoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieEnjoy.release.xcconfig"; path = "Target Support Files/Pods-movieEnjoy/Pods-movieEnjoy.release.xcconfig"; sourceTree = "<group>"; };
 		F7404BF624C724C400A6A5A1 /* TextFieldOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldOption.swift; sourceTree = "<group>"; };
+		F7404C2924D24D5C00A6A5A1 /* CollectionViewCell01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell01.swift; sourceTree = "<group>"; };
+		F7404C2A24D24D5C00A6A5A1 /* CollectionViewCell01.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell01.xib; sourceTree = "<group>"; };
+		F7404C2D24D24D6C00A6A5A1 /* CollectionViewCell02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell02.swift; sourceTree = "<group>"; };
+		F7404C2E24D24D6C00A6A5A1 /* CollectionViewCell02.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell02.xib; sourceTree = "<group>"; };
+		F7404C3124D24D7600A6A5A1 /* CollectionViewCell03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell03.swift; sourceTree = "<group>"; };
+		F7404C3224D24D7600A6A5A1 /* CollectionViewCell03.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell03.xib; sourceTree = "<group>"; };
+		F7404C3524D25DC800A6A5A1 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
+		F7404C3624D25DC800A6A5A1 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
 		F7B546F024C48CDC00A3909A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7B546F224C48EFD00A3909A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		F7B546F424C48F0D00A3909A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -83,6 +99,14 @@
 			isa = PBXGroup;
 			children = (
 				F7B546FB24C698F000A3909A /* LoggedMain.storyboard */,
+				F7404C2924D24D5C00A6A5A1 /* CollectionViewCell01.swift */,
+				F7404C2A24D24D5C00A6A5A1 /* CollectionViewCell01.xib */,
+				F7404C2D24D24D6C00A6A5A1 /* CollectionViewCell02.swift */,
+				F7404C2E24D24D6C00A6A5A1 /* CollectionViewCell02.xib */,
+				F7404C3124D24D7600A6A5A1 /* CollectionViewCell03.swift */,
+				F7404C3224D24D7600A6A5A1 /* CollectionViewCell03.xib */,
+				F7404C3524D25DC800A6A5A1 /* CollectionHeaderView.swift */,
+				F7404C3624D25DC800A6A5A1 /* CollectionHeaderView.xib */,
 				F7B546F924C698BB00A3909A /* MainVC.swift */,
 			);
 			path = MainView;
@@ -205,8 +229,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7404C3024D24D6C00A6A5A1 /* CollectionViewCell02.xib in Resources */,
 				F7B546F124C48CDC00A3909A /* GoogleService-Info.plist in Resources */,
+				F7404C2C24D24D5C00A6A5A1 /* CollectionViewCell01.xib in Resources */,
+				F7404C3424D24D7600A6A5A1 /* CollectionViewCell03.xib in Resources */,
 				F7B6F32824C1E10A009F1F2C /* LaunchScreen.storyboard in Resources */,
+				F7404C3824D25DC800A6A5A1 /* CollectionHeaderView.xib in Resources */,
 				F7B546FC24C698F000A3909A /* LoggedMain.storyboard in Resources */,
 				F7B6F32524C1E10A009F1F2C /* Assets.xcassets in Resources */,
 				F7B6F32024C1E108009F1F2C /* Main.storyboard in Resources */,
@@ -263,14 +291,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B546F524C48F0D00A3909A /* SignUpVC.swift in Sources */,
+				F7404C2B24D24D5C00A6A5A1 /* CollectionViewCell01.swift in Sources */,
 				F7B546FA24C698BB00A3909A /* MainVC.swift in Sources */,
+				F7404C3324D24D7600A6A5A1 /* CollectionViewCell03.swift in Sources */,
 				F7B6F33824C1E502009F1F2C /* GradientView.swift in Sources */,
 				F7404BF724C724C400A6A5A1 /* TextFieldOption.swift in Sources */,
+				F7404C3724D25DC800A6A5A1 /* CollectionHeaderView.swift in Sources */,
 				F7B6F32324C1E108009F1F2C /* movieEnjoy.xcdatamodeld in Sources */,
 				F7B6F31D24C1E108009F1F2C /* ViewController.swift in Sources */,
 				F7B6F31924C1E108009F1F2C /* AppDelegate.swift in Sources */,
 				F7B546F324C48EFD00A3909A /* SignInVC.swift in Sources */,
 				F7B6F31B24C1E108009F1F2C /* SceneDelegate.swift in Sources */,
+				F7404C2F24D24D6C00A6A5A1 /* CollectionViewCell02.swift in Sources */,
 				F7B546F724C696A000A3909A /* AlertService.swift in Sources */,
 				F7B6F33A24C1E6B8009F1F2C /* StartVC.swift in Sources */,
 			);
