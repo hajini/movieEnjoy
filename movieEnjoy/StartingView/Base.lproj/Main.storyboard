@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-rR-86k">
-                                        <rect key="frame" x="186" y="644" width="42" height="30"/>
+                                        <rect key="frame" x="186" y="666" width="42" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Log in"/>
                                         <connections>
@@ -178,6 +178,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V9-a6-HKt">
+                                <rect key="frame" x="111" y="662" width="192" height="76"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="createAccBtnTap:" destination="eKw-U3-cnj" eventType="touchUpInside" id="DxD-9d-twC"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olx-Pr-9oL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -267,24 +274,20 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V9-a6-HKt">
-                                <rect key="frame" x="111" y="662" width="193" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="createAccBtnTap:" destination="eKw-U3-cnj" eventType="touchUpInside" id="DxD-9d-twC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="f32-FG-oog" firstAttribute="bottom" secondItem="4V9-a6-HKt" secondAttribute="bottom" constant="124" id="6mO-ap-a5V"/>
                             <constraint firstItem="lp5-3s-haQ" firstAttribute="leading" secondItem="f32-FG-oog" secondAttribute="leading" constant="15" id="9mX-7b-5pv"/>
+                            <constraint firstItem="4V9-a6-HKt" firstAttribute="centerX" secondItem="lp5-3s-haQ" secondAttribute="centerX" id="KTz-Vp-V8R"/>
                             <constraint firstItem="lp5-3s-haQ" firstAttribute="centerY" secondItem="f32-FG-oog" secondAttribute="centerY" id="OxC-9j-jb3"/>
                             <constraint firstItem="f32-FG-oog" firstAttribute="trailing" secondItem="lp5-3s-haQ" secondAttribute="trailing" constant="15" id="V4L-1o-Ruo"/>
+                            <constraint firstItem="4V9-a6-HKt" firstAttribute="top" secondItem="lp5-3s-haQ" secondAttribute="bottom" constant="92" id="cmI-vr-CMa"/>
                             <constraint firstItem="olx-Pr-9oL" firstAttribute="leading" secondItem="f32-FG-oog" secondAttribute="leading" id="ee7-tI-twr"/>
                             <constraint firstAttribute="bottom" secondItem="olx-Pr-9oL" secondAttribute="bottom" id="hOz-yM-UiM"/>
                             <constraint firstItem="olx-Pr-9oL" firstAttribute="top" secondItem="naQ-uI-GcV" secondAttribute="top" id="sZv-pH-RYI"/>
                             <constraint firstItem="olx-Pr-9oL" firstAttribute="trailing" secondItem="f32-FG-oog" secondAttribute="trailing" id="w6E-Sj-Kmv"/>
+                            <constraint firstItem="4V9-a6-HKt" firstAttribute="leading" secondItem="f32-FG-oog" secondAttribute="leading" constant="111" id="xnD-7x-QY2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f32-FG-oog"/>
                     </view>

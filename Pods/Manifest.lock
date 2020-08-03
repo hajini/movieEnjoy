@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.1)
   - Firebase/Analytics (6.24.0):
     - Firebase/Core
   - Firebase/Core (6.24.0):
@@ -69,21 +70,30 @@ PODS:
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.4.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.8)
+  - SwiftyJSON (5.0.0)
   - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Firebase/Analytics
   - FirebaseAuth
+  - Moya
+  - SwiftyJSON
   - TextFieldEffects
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -97,11 +107,14 @@ SPEC REPOS:
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - GTMSessionFetcher
+    - Moya
     - nanopb
     - PromisesObjC
+    - SwiftyJSON
     - TextFieldEffects
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Firebase: b28e55c60efd98963cd9011fe2fac5a10c2ba124
   FirebaseAnalytics: 7386fc2176e3f93ad8ef34b5b1f2b33a891e4962
   FirebaseAuth: 7047aec89c0b17ecd924a550c853f0c27ac6015e
@@ -115,10 +128,12 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: d70a561f7d236af529fee598835caad5e25f6d3d
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 4ca5ef9f93fced125031b5f1bdb263cbc37213dd
+PODFILE CHECKSUM: 38278486a246dd10617b189476ed1928c76d87d3
 
 COCOAPODS: 1.9.1

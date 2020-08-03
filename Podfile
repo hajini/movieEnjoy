@@ -8,6 +8,9 @@ target 'movieEnjoy' do
 pod 'FirebaseAuth'
 pod 'Firebase/Analytics'
 pod 'TextFieldEffects'
+pod 'Alamofire'
+pod 'Moya'
+pod 'SwiftyJSON'
 
   # Pods for movieEnjoy
 

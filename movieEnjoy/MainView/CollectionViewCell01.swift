@@ -11,6 +11,7 @@ import UIKit
 class CollectionViewCell01: UICollectionViewCell {
 
     @IBOutlet weak var label01: UILabel!
+    @IBOutlet weak var img: UIImageView!
     
     static let identifier = "LatestCollectionViewCell"
     
@@ -21,9 +22,8 @@ class CollectionViewCell01: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        label01.text = "label0101010"
-        backgroundColor = .red
         
+    
     }
 
 }

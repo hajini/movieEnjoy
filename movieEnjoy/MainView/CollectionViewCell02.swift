@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionViewCell02: UICollectionViewCell {
 
+    @IBOutlet weak var label01: UILabel!
+    
     static let identifier = "NowPlayingCollectionViewCell"
     
     static func nib() -> UINib {

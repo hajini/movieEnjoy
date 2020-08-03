@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Moya
+import SwiftyJSON
 
 class MainVC: UIViewController {
 
@@ -23,10 +25,26 @@ class MainVC: UIViewController {
    
     var gradientLayer: CAGradientLayer!
     
+    var movieProvider = MoyaProvider<MovieService>()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        print(UserDefaults.standard.string(forKey: "token")!)
+        
+        movieProvider.request(.nowPlaying) { (result) in
+            switch result {
+            case .success(let response):
+                let json = JSON(response.data)
+                
+                print(json)
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
         
         
         collection01.register(CollectionViewCell01.nib(), forCellWithReuseIdentifier: CollectionViewCell01.identifier)
@@ -36,6 +54,7 @@ class MainVC: UIViewController {
         
         collection01.delegate = self
         collection01.dataSource = self
+        
         
         // Do any additional setup after loading the view.
         self.gradientLayer = CAGradientLayer()
@@ -68,6 +87,7 @@ class MainVC: UIViewController {
     */
     @IBAction func menuBtnTap(_ sender: Any) {
     }
+    
     @IBAction func logOutBtnTap(_ sender: Any) {
         
         AlertService.confirmAlert(title: "로그아웃 하시겠습니까?", message: "", VC: self) { (_) in
@@ -104,23 +124,31 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          
         if indexPath.section == 0 {
             let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell01.identifier, for: indexPath) as! CollectionViewCell01
+            cell.label01.text = "제목"
+            cell.img.image = UIImage(named: "")
             return cell
         } else if indexPath.section == 1 {
             let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell02.identifier, for: indexPath) as! CollectionViewCell02
+            cell.label01.text = "제목"
             return cell
         }
         let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell03.identifier, for: indexPath) as! CollectionViewCell03
+        cell.label01.text = "제목"
         return cell
     }
     
@@ -150,16 +178,18 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         if kind == UICollectionView.elementKindSectionHeader {
             if indexPath.section == 0 {
                 header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
-                header?.backgroundColor = .systemGray5
-                header?.label01.text = "헤더"
+                header?.backgroundColor = .systemGray3
+                header?.label01.text = "Latest"
                 return header!
             } else if indexPath.section == 1 {
                 header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
-                header?.label01.text = "헤더2"
+                header?.backgroundColor = .systemGray3
+                header?.label01.text = "Now Playing"
                 return header!
             }
             header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
-            header?.label01.text = "헤더3"
+            header?.backgroundColor = .systemGray3
+            header?.label01.text = "Popular"
         }
         return header!
         

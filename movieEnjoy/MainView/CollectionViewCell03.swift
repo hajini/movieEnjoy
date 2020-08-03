@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionViewCell03: UICollectionViewCell {
 
+    @IBOutlet weak var label01: UILabel!
+    
     static let identifier = "PopularCollectionViewCell"
     
     static func nib() -> UINib {
