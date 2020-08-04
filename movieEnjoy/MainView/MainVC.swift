@@ -26,26 +26,28 @@ class MainVC: UIViewController {
     var gradientLayer: CAGradientLayer!
     
     var movieProvider = MoyaProvider<MovieService>()
-    
+    var movieResult = [Result]()
+//    var getData01 = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
+//        movieProvider.request(.nowPlaying) { (result) in
+//            switch result {
+//            case .success(let response):
+//                let json = JSON(response.data)
+//                let movieTitle = json["results"].arrayValue.map{$0["title"].stringValue}
+//                let posterPath = json["results"].arrayValue.map{$0["poster_path"].stringValue}
+//                self.countTitle = movieTitle.count
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+        
+    
 //        print(UserDefaults.standard.string(forKey: "token")!)
-        
-        movieProvider.request(.nowPlaying) { (result) in
-            switch result {
-            case .success(let response):
-                let json = JSON(response.data)
-                
-                print(json)
-                break
-            case .failure(let err):
-                print(err.localizedDescription)
-                break
-            }
-        }
-        
         
         collection01.register(CollectionViewCell01.nib(), forCellWithReuseIdentifier: CollectionViewCell01.identifier)
         collection01.register(CollectionViewCell02.nib(), forCellWithReuseIdentifier: CollectionViewCell02.identifier)
@@ -76,6 +78,19 @@ class MainVC: UIViewController {
         
     }
     
+//    func parsing(kindOfData: MovieService, searchKeyword: String) -> Void {
+//        movieProvider.request(kindOfData) { (result) in
+//            switch result {
+//            case .success(let response):
+//                let json = JSON(response.data)
+//                let stringValue = json["results"].arrayValue.map{$0[searchKeyword].stringValue}
+//                self.getData01 = stringValue
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
+    
     /*
     // MARK: - Navigation
 
@@ -104,6 +119,8 @@ class MainVC: UIViewController {
             }
         }
     }
+
+
     
 }
 
@@ -116,9 +133,10 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 5
+            return 3
         } else if section == 1 {
-            return 5
+//            parsing(kindOfData: .nowPlaying, searchKeyword: "title")
+            return 4
         }
         return 5
     }
@@ -139,12 +157,15 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
          
         if indexPath.section == 0 {
             let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell01.identifier, for: indexPath) as! CollectionViewCell01
-            cell.label01.text = "제목"
-            cell.img.image = UIImage(named: "")
+            
+            
+//            cell.img.image = UIImage(named: "")
             return cell
         } else if indexPath.section == 1 {
             let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell02.identifier, for: indexPath) as! CollectionViewCell02
-            cell.label01.text = "제목"
+//            parsing(kindOfData: .nowPlaying, searchKeyword: "title")
+//            cell.label01.text = getData01[indexPath.row]
+            
             return cell
         }
         let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell03.identifier, for: indexPath) as! CollectionViewCell03
