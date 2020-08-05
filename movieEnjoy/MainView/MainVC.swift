@@ -147,6 +147,8 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        // Need to build again here
+        
         if section == 0 {
             return 20
         } else if section == 1 {
