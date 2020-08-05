@@ -11,6 +11,7 @@ import UIKit
 class CollectionViewCell02: UICollectionViewCell {
 
     @IBOutlet weak var label01: UILabel!
+    @IBOutlet weak var img: UIImageView!
     
     static let identifier = "NowPlayingCollectionViewCell"
     
@@ -21,7 +22,8 @@ class CollectionViewCell02: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        backgroundColor = .green
+        backgroundColor = .systemIndigo
+        
     }
 
 }

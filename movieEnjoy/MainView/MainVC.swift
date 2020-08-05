@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Moya
 import SwiftyJSON
+import Kingfisher
 
 class MainVC: UIViewController {
 
@@ -26,23 +27,40 @@ class MainVC: UIViewController {
     var gradientLayer: CAGradientLayer!
     
     var movieProvider = MoyaProvider<MovieService>()
-    var movieResult = [Result]()
+    var movieResult: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        movieProvider.request(.nowPlaying) { (result) in
+        movieProvider.request(.popular) { (result) in
             switch result {
             case .success(let response):
                 let json = JSON(response.data)
-                let stringValue = json["results"].arrayValue.map{$0["title"].stringValue}
-                print(stringValue)
-
+                let titleValue = json["results"].arrayValue.map{$0["title"].stringValue}
+                print(titleValue.count)
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
             
+//        movieProvider.request(.nowPlaying) { (result) in
+//                switch result {
+//                case .success(let response):
+//                    let json = JSON(response.data)
+//                    let stringValue = json["results"].arrayValue.map{$0["title"].stringValue}
+//                    let imgValue = json["results"].arrayValue.map{$0["poster_path"].stringValue}
+//                    let urlString = "https://api.themoviedb.org/3/movie/now_playing\(imgValue[indexPath.row])"
+//
+//                    print(urlTotal)
+//                case .failure(let err):
+//                    print(err.localizedDescription)
+//                }
+//            }
+            
+        
+//        let imgValue = json["results"].arrayValue.map{$0["poster_path"].stringValue}
+//        let urlString = "https://api.themoviedb.org/3/movie/now_playing"
+//        let urlTotal = urlString + imgValue[indexPath.row]
     
 //        print(UserDefaults.standard.string(forKey: "token")!)
         
@@ -130,12 +148,11 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 3
+            return 20
         } else if section == 1 {
-//            parsing(kindOfData: .nowPlaying, searchKeyword: "title")
-            return 4
+            return 20
         }
-        return 5
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -154,19 +171,59 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
          
         if indexPath.section == 0 {
             let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell01.identifier, for: indexPath) as! CollectionViewCell01
+            movieProvider.request(.upcoming) { (result) in
+                switch result {
+                case .success(let response):
+                    let json = JSON(response.data)
+                    let titleValue = json["results"].arrayValue.map{$0["title"].stringValue}
+                    let imgValue = json["results"].arrayValue.map{$0["poster_path"].stringValue}
+                    let urlString = "https://image.tmdb.org/t/p/original\(imgValue[indexPath.row])"
+                    let url = URL(string: urlString)
+                    cell.label01.text = titleValue[indexPath.row]
+                    cell.img.kf.setImage(with: url)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+            }
             
-            
-//            cell.img.image = UIImage(named: "")
             return cell
         } else if indexPath.section == 1 {
             let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell02.identifier, for: indexPath) as! CollectionViewCell02
-//            parsing(kindOfData: .nowPlaying, searchKeyword: "title")
-//            cell.label01.text = getData01[indexPath.row]
+            
+            movieProvider.request(.nowPlaying) { (result) in
+                switch result {
+                case .success(let response):
+                    let json = JSON(response.data)
+                    let titleValue = json["results"].arrayValue.map{$0["title"].stringValue}
+                    let imgValue = json["results"].arrayValue.map{$0["poster_path"].stringValue}
+                    let urlString = "https://image.tmdb.org/t/p/original\(imgValue[indexPath.row])"
+                    let url = URL(string: urlString)
+                    cell.label01.text = titleValue[indexPath.row]
+                    cell.img.kf.setImage(with: url)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+            }
             
             return cell
         }
         let cell = collection01.dequeueReusableCell(withReuseIdentifier: CollectionViewCell03.identifier, for: indexPath) as! CollectionViewCell03
-        cell.label01.text = "제목"
+        
+        movieProvider.request(.popular) { (result) in
+            switch result {
+            case .success(let response):
+                let json = JSON(response.data)
+                let titleValue = json["results"].arrayValue.map{$0["title"].stringValue}
+                let imgValue = json["results"].arrayValue.map{$0["poster_path"].stringValue}
+                let urlString = "https://image.tmdb.org/t/p/original\(imgValue[indexPath.row])"
+                let url = URL(string: urlString)
+                cell.label01.text = titleValue[indexPath.row]
+                cell.img.kf.setImage(with: url)
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+        
         return cell
     }
     
@@ -196,8 +253,8 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         if kind == UICollectionView.elementKindSectionHeader {
             if indexPath.section == 0 {
                 header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView
-                header?.backgroundColor = .systemGray3
-                header?.label01.text = "Latest"
+                header?.backgroundColor = .systemGray2
+                header?.label01.text = "Upcoming"
                 return header!
             } else if indexPath.section == 1 {
                 header = collection01.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView

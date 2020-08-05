@@ -13,7 +13,7 @@ class CollectionViewCell01: UICollectionViewCell {
     @IBOutlet weak var label01: UILabel!
     @IBOutlet weak var img: UIImageView!
     
-    static let identifier = "LatestCollectionViewCell"
+    static let identifier = "UpcomingCollectionViewCell"
     
     static func nib() -> UINib {
         return UINib(nibName: "CollectionViewCell01", bundle: nil)

@@ -11,6 +11,7 @@ pod 'TextFieldEffects'
 pod 'Alamofire'
 pod 'Moya'
 pod 'SwiftyJSON'
+pod 'Kingfisher'
 
   # Pods for movieEnjoy
 

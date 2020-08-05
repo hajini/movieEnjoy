@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum MovieService {
-    case latest
+    case upcoming
     case nowPlaying
     case popular
 }
@@ -22,8 +22,8 @@ extension MovieService : TargetType {
     
     var path: String {
         switch self {
-        case .latest:
-            return "/latest"
+        case .upcoming:
+            return "/upcoming"
         case .nowPlaying:
             return "/now_playing"
         case .popular:
@@ -33,21 +33,21 @@ extension MovieService : TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .latest, .nowPlaying, .popular:
+        case .upcoming, .nowPlaying, .popular:
             return .get
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .latest, .nowPlaying, .popular:
+        case .upcoming, .nowPlaying, .popular:
             return Data()
         }
     }
     
     var task: Task {
         switch self {
-        case .latest, .nowPlaying, .popular:
+        case .upcoming, .nowPlaying, .popular:
             return .requestParameters(parameters: ["api_key" : "ab5dcb3f4f944613e03aa87a569438c6"], encoding: URLEncoding.queryString)
         }
     }

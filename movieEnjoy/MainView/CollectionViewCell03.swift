@@ -11,6 +11,7 @@ import UIKit
 class CollectionViewCell03: UICollectionViewCell {
 
     @IBOutlet weak var label01: UILabel!
+    @IBOutlet weak var img: UIImageView!
     
     static let identifier = "PopularCollectionViewCell"
     
@@ -21,7 +22,7 @@ class CollectionViewCell03: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        backgroundColor = .blue
+        backgroundColor = .systemBlue
     }
 
 }

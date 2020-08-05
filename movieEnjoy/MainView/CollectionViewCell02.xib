@@ -9,31 +9,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NowPlayingCollectionViewCell" id="gTV-IL-0wX" customClass="CollectionViewCell02" customModule="movieEnjoy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="153" height="153"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NowPlayingCollectionViewCell" id="EwR-yd-oKN" customClass="CollectionViewCell02" customModule="movieEnjoy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="153" height="153"/>
+                <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cell02" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckI-zb-FJv">
-                        <rect key="frame" x="93" y="122" width="50" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nb4-MI-pQJ">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="3ID-7q-Wj8"/>
+                            <constraint firstAttribute="width" constant="120" id="XAM-0w-3C2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHR-b0-5Yn">
+                        <rect key="frame" x="0.0" y="120" width="120" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="qgx-ut-DyD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ckI-zb-FJv" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="3zV-zB-BP5"/>
-                <constraint firstItem="ckI-zb-FJv" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="8SL-p8-XQt"/>
+                <constraint firstItem="Nb4-MI-pQJ" firstAttribute="leading" secondItem="EwR-yd-oKN" secondAttribute="leading" id="D8K-o1-ahr"/>
+                <constraint firstAttribute="trailing" secondItem="Nb4-MI-pQJ" secondAttribute="trailing" id="Mc1-Rc-yKT"/>
+                <constraint firstItem="lHR-b0-5Yn" firstAttribute="top" secondItem="Nb4-MI-pQJ" secondAttribute="bottom" id="V99-x4-CqR"/>
+                <constraint firstItem="lHR-b0-5Yn" firstAttribute="leading" secondItem="EwR-yd-oKN" secondAttribute="leading" id="VTN-AH-z61"/>
+                <constraint firstAttribute="trailing" secondItem="lHR-b0-5Yn" secondAttribute="trailing" id="ic3-Ik-vJ5"/>
+                <constraint firstItem="Nb4-MI-pQJ" firstAttribute="top" secondItem="EwR-yd-oKN" secondAttribute="top" id="yMi-bO-raG"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="153" height="153"/>
+            <viewLayoutGuide key="safeArea" id="RBZ-2W-PyV"/>
+            <size key="customSize" width="222" height="385"/>
             <connections>
-                <outlet property="label01" destination="ckI-zb-FJv" id="9Pq-nh-99f"/>
+                <outlet property="img" destination="Nb4-MI-pQJ" id="e2n-NJ-7fv"/>
+                <outlet property="label01" destination="lHR-b0-5Yn" id="2Ba-Ne-d70"/>
             </connections>
-            <point key="canvasLocation" x="212.31884057971016" y="136.27232142857142"/>
+            <point key="canvasLocation" x="164" y="132"/>
         </collectionViewCell>
     </objects>
 </document>
