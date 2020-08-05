@@ -27,25 +27,22 @@ class MainVC: UIViewController {
     
     var movieProvider = MoyaProvider<MovieService>()
     var movieResult = [Result]()
-//    var getData01 = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-//        movieProvider.request(.nowPlaying) { (result) in
-//            switch result {
-//            case .success(let response):
-//                let json = JSON(response.data)
-//                let movieTitle = json["results"].arrayValue.map{$0["title"].stringValue}
-//                let posterPath = json["results"].arrayValue.map{$0["poster_path"].stringValue}
-//                self.countTitle = movieTitle.count
-//            case .failure(let err):
-//                print(err.localizedDescription)
-//            }
-//        }
-        
+        movieProvider.request(.nowPlaying) { (result) in
+            switch result {
+            case .success(let response):
+                let json = JSON(response.data)
+                let stringValue = json["results"].arrayValue.map{$0["title"].stringValue}
+                print(stringValue)
+
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+            
     
 //        print(UserDefaults.standard.string(forKey: "token")!)
         
