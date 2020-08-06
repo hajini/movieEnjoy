@@ -116,6 +116,18 @@ class MainVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "moveToDetail01" {
+            let detailViewController = segue.destination as! DetailVC
+        }
+    }
+    
+    @IBAction func closeBtnTap(_ sender: UIStoryboardSegue) {
+    }
+    
     @IBAction func menuBtnTap(_ sender: Any) {
     }
     
@@ -232,11 +244,14 @@ extension MainVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            print("cell01")
+            performSegue(withIdentifier: "moveToDetail01", sender: Any?.self)
+           
         } else if indexPath.section == 1 {
-            print("cell02")
+            performSegue(withIdentifier: "moveToDetail02", sender: Any?.self)
+           
         } else {
-            print("cell03")
+            performSegue(withIdentifier: "moveToDetail03", sender: Any?.self)
+          
         }
     }
     
